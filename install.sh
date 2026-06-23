@@ -1,5 +1,6 @@
 #!/bin/sh
 
+IGMPCONF_PATH=/etc/config/igmpproxy
 INTERFACE_NAME=iptv
 
 function isRoot() {
@@ -24,7 +25,7 @@ function installIgmpproxy() {
 function configuringIgmpproxy() {
     echo "Настройка Igmpproxy"
 
-cat <<EOF > igmpconf
+cat <<EOF > "$IGMPCONF_PATH"
 config igmpproxy
         option quickleave 1
 #       option verbose [0-3](none, minimal[default], more, maximum)
